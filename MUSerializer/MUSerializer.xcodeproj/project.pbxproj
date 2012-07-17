@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B32960EE15B5B2C4007EAF78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32960ED15B5B2C4007EAF78 /* UIKit.framework */; };
+		B32960F015B5B2C4007EAF78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32960EF15B5B2C4007EAF78 /* Foundation.framework */; };
+		B32960F215B5B2C4007EAF78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32960F115B5B2C4007EAF78 /* CoreGraphics.framework */; };
+		B32960F815B5B2C4007EAF78 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B32960F615B5B2C4007EAF78 /* InfoPlist.strings */; };
+		B32960FA15B5B2C4007EAF78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B32960F915B5B2C4007EAF78 /* main.m */; };
+		B32960FE15B5B2C4007EAF78 /* MUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B32960FD15B5B2C4007EAF78 /* MUAppDelegate.m */; };
+		B329610615B5B2C4007EAF78 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B329610515B5B2C4007EAF78 /* SenTestingKit.framework */; };
+		B329610715B5B2C4007EAF78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32960ED15B5B2C4007EAF78 /* UIKit.framework */; };
+		B329610815B5B2C4007EAF78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32960EF15B5B2C4007EAF78 /* Foundation.framework */; };
+		B329611015B5B2C4007EAF78 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B329610E15B5B2C4007EAF78 /* InfoPlist.strings */; };
+		B329611315B5B2C4007EAF78 /* MUSerializerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B329611215B5B2C4007EAF78 /* MUSerializerTests.m */; };
+		B329612215B5B3A8007EAF78 /* MUAutoEncodeDecodeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B329611F15B5B3A8007EAF78 /* MUAutoEncodeDecodeObject.m */; };
+		B329612315B5B3A8007EAF78 /* MUAutoEncodeDecodeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B329611F15B5B3A8007EAF78 /* MUAutoEncodeDecodeObject.m */; };
+		B329612415B5B3A8007EAF78 /* MUSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = B329612115B5B3A8007EAF78 /* MUSerializer.m */; };
+		B329612515B5B3A8007EAF78 /* MUSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = B329612115B5B3A8007EAF78 /* MUSerializer.m */; };
+		B329612815B5B3CA007EAF78 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B329612715B5B3CA007EAF78 /* libsqlite3.dylib */; };
+		B329613415B5B3FC007EAF78 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = B329612B15B5B3FC007EAF78 /* FMDatabase.m */; };
+		B329613515B5B3FC007EAF78 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = B329612B15B5B3FC007EAF78 /* FMDatabase.m */; };
+		B329613615B5B3FC007EAF78 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B329612D15B5B3FC007EAF78 /* FMDatabaseAdditions.m */; };
+		B329613715B5B3FC007EAF78 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B329612D15B5B3FC007EAF78 /* FMDatabaseAdditions.m */; };
+		B329613815B5B3FC007EAF78 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = B329612F15B5B3FC007EAF78 /* FMDatabasePool.m */; };
+		B329613915B5B3FC007EAF78 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = B329612F15B5B3FC007EAF78 /* FMDatabasePool.m */; };
+		B329613A15B5B3FC007EAF78 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B329613115B5B3FC007EAF78 /* FMDatabaseQueue.m */; };
+		B329613B15B5B3FC007EAF78 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B329613115B5B3FC007EAF78 /* FMDatabaseQueue.m */; };
+		B329613C15B5B3FC007EAF78 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B329613315B5B3FC007EAF78 /* FMResultSet.m */; };
+		B329613D15B5B3FC007EAF78 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B329613315B5B3FC007EAF78 /* FMResultSet.m */; };
+		B329613E15B5B430007EAF78 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B329612715B5B3CA007EAF78 /* libsqlite3.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B329610915B5B2C4007EAF78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B32960E015B5B2C4007EAF78 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B32960E815B5B2C4007EAF78;
+			remoteInfo = MUSerializer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B32960E915B5B2C4007EAF78 /* MUSerializer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MUSerializer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B32960ED15B5B2C4007EAF78 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B32960EF15B5B2C4007EAF78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B32960F115B5B2C4007EAF78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B32960F515B5B2C4007EAF78 /* MUSerializer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MUSerializer-Info.plist"; sourceTree = "<group>"; };
+		B32960F715B5B2C4007EAF78 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B32960F915B5B2C4007EAF78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B32960FB15B5B2C4007EAF78 /* MUSerializer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MUSerializer-Prefix.pch"; sourceTree = "<group>"; };
+		B32960FC15B5B2C4007EAF78 /* MUAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUAppDelegate.h; sourceTree = "<group>"; };
+		B32960FD15B5B2C4007EAF78 /* MUAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUAppDelegate.m; sourceTree = "<group>"; };
+		B329610415B5B2C4007EAF78 /* MUSerializerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MUSerializerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B329610515B5B2C4007EAF78 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B329610D15B5B2C4007EAF78 /* MUSerializerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MUSerializerTests-Info.plist"; sourceTree = "<group>"; };
+		B329610F15B5B2C4007EAF78 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B329611115B5B2C4007EAF78 /* MUSerializerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUSerializerTests.h; sourceTree = "<group>"; };
+		B329611215B5B2C4007EAF78 /* MUSerializerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUSerializerTests.m; sourceTree = "<group>"; };
+		B329611E15B5B3A8007EAF78 /* MUAutoEncodeDecodeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUAutoEncodeDecodeObject.h; sourceTree = "<group>"; };
+		B329611F15B5B3A8007EAF78 /* MUAutoEncodeDecodeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUAutoEncodeDecodeObject.m; sourceTree = "<group>"; };
+		B329612015B5B3A8007EAF78 /* MUSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUSerializer.h; sourceTree = "<group>"; };
+		B329612115B5B3A8007EAF78 /* MUSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSerializer.m; sourceTree = "<group>"; };
+		B329612715B5B3CA007EAF78 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		B329612A15B5B3FC007EAF78 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		B329612B15B5B3FC007EAF78 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		B329612C15B5B3FC007EAF78 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		B329612D15B5B3FC007EAF78 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		B329612E15B5B3FC007EAF78 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		B329612F15B5B3FC007EAF78 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		B329613015B5B3FC007EAF78 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		B329613115B5B3FC007EAF78 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		B329613215B5B3FC007EAF78 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		B329613315B5B3FC007EAF78 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B32960E615B5B2C4007EAF78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B329612815B5B3CA007EAF78 /* libsqlite3.dylib in Frameworks */,
+				B32960EE15B5B2C4007EAF78 /* UIKit.framework in Frameworks */,
+				B32960F015B5B2C4007EAF78 /* Foundation.framework in Frameworks */,
+				B32960F215B5B2C4007EAF78 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B329610015B5B2C4007EAF78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B329613E15B5B430007EAF78 /* libsqlite3.dylib in Frameworks */,
+				B329610615B5B2C4007EAF78 /* SenTestingKit.framework in Frameworks */,
+				B329610715B5B2C4007EAF78 /* UIKit.framework in Frameworks */,
+				B329610815B5B2C4007EAF78 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B32960DE15B5B2C4007EAF78 = {
+			isa = PBXGroup;
+			children = (
+				B329612715B5B3CA007EAF78 /* libsqlite3.dylib */,
+				B32960F315B5B2C4007EAF78 /* MUSerializer */,
+				B329610B15B5B2C4007EAF78 /* MUSerializerTests */,
+				B32960EC15B5B2C4007EAF78 /* Frameworks */,
+				B32960EA15B5B2C4007EAF78 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B32960EA15B5B2C4007EAF78 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B32960E915B5B2C4007EAF78 /* MUSerializer.app */,
+				B329610415B5B2C4007EAF78 /* MUSerializerTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B32960EC15B5B2C4007EAF78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B32960ED15B5B2C4007EAF78 /* UIKit.framework */,
+				B32960EF15B5B2C4007EAF78 /* Foundation.framework */,
+				B32960F115B5B2C4007EAF78 /* CoreGraphics.framework */,
+				B329610515B5B2C4007EAF78 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B32960F315B5B2C4007EAF78 /* MUSerializer */ = {
+			isa = PBXGroup;
+			children = (
+				B329612615B5B3B6007EAF78 /* lib */,
+				B329611C15B5B2EE007EAF78 /* src */,
+				B32960FC15B5B2C4007EAF78 /* MUAppDelegate.h */,
+				B32960FD15B5B2C4007EAF78 /* MUAppDelegate.m */,
+				B32960F415B5B2C4007EAF78 /* Supporting Files */,
+			);
+			path = MUSerializer;
+			sourceTree = "<group>";
+		};
+		B32960F415B5B2C4007EAF78 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B32960F515B5B2C4007EAF78 /* MUSerializer-Info.plist */,
+				B32960F615B5B2C4007EAF78 /* InfoPlist.strings */,
+				B32960F915B5B2C4007EAF78 /* main.m */,
+				B32960FB15B5B2C4007EAF78 /* MUSerializer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B329610B15B5B2C4007EAF78 /* MUSerializerTests */ = {
+			isa = PBXGroup;
+			children = (
+				B329611115B5B2C4007EAF78 /* MUSerializerTests.h */,
+				B329611215B5B2C4007EAF78 /* MUSerializerTests.m */,
+				B329610C15B5B2C4007EAF78 /* Supporting Files */,
+			);
+			path = MUSerializerTests;
+			sourceTree = "<group>";
+		};
+		B329610C15B5B2C4007EAF78 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B329610D15B5B2C4007EAF78 /* MUSerializerTests-Info.plist */,
+				B329610E15B5B2C4007EAF78 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B329611C15B5B2EE007EAF78 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				B329611D15B5B3A8007EAF78 /* MUSerializer */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		B329611D15B5B3A8007EAF78 /* MUSerializer */ = {
+			isa = PBXGroup;
+			children = (
+				B329611E15B5B3A8007EAF78 /* MUAutoEncodeDecodeObject.h */,
+				B329611F15B5B3A8007EAF78 /* MUAutoEncodeDecodeObject.m */,
+				B329612015B5B3A8007EAF78 /* MUSerializer.h */,
+				B329612115B5B3A8007EAF78 /* MUSerializer.m */,
+			);
+			path = MUSerializer;
+			sourceTree = "<group>";
+		};
+		B329612615B5B3B6007EAF78 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				B329612915B5B3FC007EAF78 /* FMDB */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		B329612915B5B3FC007EAF78 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				B329612A15B5B3FC007EAF78 /* FMDatabase.h */,
+				B329612B15B5B3FC007EAF78 /* FMDatabase.m */,
+				B329612C15B5B3FC007EAF78 /* FMDatabaseAdditions.h */,
+				B329612D15B5B3FC007EAF78 /* FMDatabaseAdditions.m */,
+				B329612E15B5B3FC007EAF78 /* FMDatabasePool.h */,
+				B329612F15B5B3FC007EAF78 /* FMDatabasePool.m */,
+				B329613015B5B3FC007EAF78 /* FMDatabaseQueue.h */,
+				B329613115B5B3FC007EAF78 /* FMDatabaseQueue.m */,
+				B329613215B5B3FC007EAF78 /* FMResultSet.h */,
+				B329613315B5B3FC007EAF78 /* FMResultSet.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B32960E815B5B2C4007EAF78 /* MUSerializer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B329611615B5B2C4007EAF78 /* Build configuration list for PBXNativeTarget "MUSerializer" */;
+			buildPhases = (
+				B32960E515B5B2C4007EAF78 /* Sources */,
+				B32960E615B5B2C4007EAF78 /* Frameworks */,
+				B32960E715B5B2C4007EAF78 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MUSerializer;
+			productName = MUSerializer;
+			productReference = B32960E915B5B2C4007EAF78 /* MUSerializer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B329610315B5B2C4007EAF78 /* MUSerializerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B329611915B5B2C4007EAF78 /* Build configuration list for PBXNativeTarget "MUSerializerTests" */;
+			buildPhases = (
+				B32960FF15B5B2C4007EAF78 /* Sources */,
+				B329610015B5B2C4007EAF78 /* Frameworks */,
+				B329610115B5B2C4007EAF78 /* Resources */,
+				B329610215B5B2C4007EAF78 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B329610A15B5B2C4007EAF78 /* PBXTargetDependency */,
+			);
+			name = MUSerializerTests;
+			productName = MUSerializerTests;
+			productReference = B329610415B5B2C4007EAF78 /* MUSerializerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B32960E015B5B2C4007EAF78 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MU;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = B32960E315B5B2C4007EAF78 /* Build configuration list for PBXProject "MUSerializer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B32960DE15B5B2C4007EAF78;
+			productRefGroup = B32960EA15B5B2C4007EAF78 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B32960E815B5B2C4007EAF78 /* MUSerializer */,
+				B329610315B5B2C4007EAF78 /* MUSerializerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B32960E715B5B2C4007EAF78 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B32960F815B5B2C4007EAF78 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B329610115B5B2C4007EAF78 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B329611015B5B2C4007EAF78 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B329610215B5B2C4007EAF78 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B32960E515B5B2C4007EAF78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B32960FA15B5B2C4007EAF78 /* main.m in Sources */,
+				B32960FE15B5B2C4007EAF78 /* MUAppDelegate.m in Sources */,
+				B329612215B5B3A8007EAF78 /* MUAutoEncodeDecodeObject.m in Sources */,
+				B329612415B5B3A8007EAF78 /* MUSerializer.m in Sources */,
+				B329613415B5B3FC007EAF78 /* FMDatabase.m in Sources */,
+				B329613615B5B3FC007EAF78 /* FMDatabaseAdditions.m in Sources */,
+				B329613815B5B3FC007EAF78 /* FMDatabasePool.m in Sources */,
+				B329613A15B5B3FC007EAF78 /* FMDatabaseQueue.m in Sources */,
+				B329613C15B5B3FC007EAF78 /* FMResultSet.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B32960FF15B5B2C4007EAF78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B329611315B5B2C4007EAF78 /* MUSerializerTests.m in Sources */,
+				B329612315B5B3A8007EAF78 /* MUAutoEncodeDecodeObject.m in Sources */,
+				B329612515B5B3A8007EAF78 /* MUSerializer.m in Sources */,
+				B329613515B5B3FC007EAF78 /* FMDatabase.m in Sources */,
+				B329613715B5B3FC007EAF78 /* FMDatabaseAdditions.m in Sources */,
+				B329613915B5B3FC007EAF78 /* FMDatabasePool.m in Sources */,
+				B329613B15B5B3FC007EAF78 /* FMDatabaseQueue.m in Sources */,
+				B329613D15B5B3FC007EAF78 /* FMResultSet.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B329610A15B5B2C4007EAF78 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B32960E815B5B2C4007EAF78 /* MUSerializer */;
+			targetProxy = B329610915B5B2C4007EAF78 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B32960F615B5B2C4007EAF78 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B32960F715B5B2C4007EAF78 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B329610E15B5B2C4007EAF78 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B329610F15B5B2C4007EAF78 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B329611415B5B2C4007EAF78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B329611515B5B2C4007EAF78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B329611715B5B2C4007EAF78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MUSerializer/MUSerializer-Prefix.pch";
+				INFOPLIST_FILE = "MUSerializer/MUSerializer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B329611815B5B2C4007EAF78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MUSerializer/MUSerializer-Prefix.pch";
+				INFOPLIST_FILE = "MUSerializer/MUSerializer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B329611A15B5B2C4007EAF78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MUSerializer.app/MUSerializer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MUSerializer/MUSerializer-Prefix.pch";
+				INFOPLIST_FILE = "MUSerializerTests/MUSerializerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B329611B15B5B2C4007EAF78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MUSerializer.app/MUSerializer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MUSerializer/MUSerializer-Prefix.pch";
+				INFOPLIST_FILE = "MUSerializerTests/MUSerializerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B32960E315B5B2C4007EAF78 /* Build configuration list for PBXProject "MUSerializer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B329611415B5B2C4007EAF78 /* Debug */,
+				B329611515B5B2C4007EAF78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B329611615B5B2C4007EAF78 /* Build configuration list for PBXNativeTarget "MUSerializer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B329611715B5B2C4007EAF78 /* Debug */,
+				B329611815B5B2C4007EAF78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B329611915B5B2C4007EAF78 /* Build configuration list for PBXNativeTarget "MUSerializerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B329611A15B5B2C4007EAF78 /* Debug */,
+				B329611B15B5B2C4007EAF78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B32960E015B5B2C4007EAF78 /* Project object */;
+}
