@@ -26,6 +26,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MUAutoEncodeDecodeObject : NSObject<NSCoding>
+@interface MUAutoEncodeDecodeObject : NSObject<NSCoding, NSCopying>
 
 @end

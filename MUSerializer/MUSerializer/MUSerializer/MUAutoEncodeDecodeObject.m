@@ -1,5 +1,5 @@
 //
-//  MUAutoEncodeDecodeObject.m
+//  MUAutoEncodeDecodeObject.h
 //  MyUtil
 //
 //  Created by  on 12-4-28.
@@ -136,6 +136,39 @@
     #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     [self performSelector:pSelector withObject:value];
     #pragma clang diagnostic pop
+}
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    id newObject = [[[self class] allocWithZone:zone] init];
+    NSDictionary* pDictionary = [self getPropertiesList];
+    for (NSString* key in [pDictionary allKeys]) {
+        NSString* type = [[pDictionary objectForKey:key] substringWithRange:NSMakeRange(1, 1)];
+        
+        if ([type isEqualToString:@"@"]) {
+            id object = [self getProperiesValue:key];
+            if (object != nil
+                    && [object conformsToProtocol:@protocol(NSCopying)]) {
+                //
+                NSMutableString* selString = [NSMutableString stringWithString:key];
+                [selString replaceCharactersInRange:NSMakeRange(0, 1)
+                                         withString:[[selString substringToIndex:1] uppercaseString]];
+                [selString appendString:@":"];
+                [selString insertString:@"set" atIndex:0];
+                
+                SEL pSelector = NSSelectorFromString(selString);
+                
+                #pragma clang diagnostic push
+                #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                [newObject performSelector:pSelector withObject:[object copy]];
+                #pragma clang diagnostic pop
+                //
+                }
+        }
+    }
+    return newObject;
 }
 
 @end

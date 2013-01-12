@@ -71,23 +71,20 @@ static inline NSString* pathForKey(NSString* aKey) {
 @interface MUSerializer(private)
 
 - (BOOL)insertDataToDatabase:(NSData*) data forKey:(NSString*) aKey;
-
 - (BOOL)deleteDataForKey:(NSString *) aKey;
 
 //database
 - (BOOL)setupDataBase;
-
 - (FMDatabase*)builtDataBase;
-
 - (BOOL)setupDataKeyQuickTable;
-
 - (NSTimeInterval) timeIntervalForKey:(NSString*) aKeyString;
-
 - (BOOL) setTimeIntervalForKey:(NSString*) aKeyString timeInterval:(NSTimeInterval) timeInterval;
-
 - (NSString*) lastErrorInformation:(FMDatabase*) database;
-
 - (void) cleanOverdueObject;
+
+//operation
+
+- (void)performDiskWriteOperation:(NSInvocation *)invoction;
 
 @end
 
@@ -122,8 +119,9 @@ static inline NSString* pathForKey(NSString* aKey) {
         _diskOperationQueue = [[NSOperationQueue alloc] init];
         [_diskOperationQueue setMaxConcurrentOperationCount:10];
         
-        _cacheDictionary = [[NSMutableDictionary alloc] init];
+        _cache = [[NSCache alloc] init];
         
+        _checkExistLock = [[NSLock alloc] init];
         _dataKeyQuickTable = [[NSMutableDictionary alloc] init];
         
         [self setupDataKeyQuickTable];
@@ -272,17 +270,11 @@ static inline NSString* pathForKey(NSString* aKey) {
         return NO;
     }
     
-    if ([[_dataKeyQuickTable objectForKey:aKey] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+    if ([_dataKeyQuickTable objectForKey:aKey]) {
         return YES;
     }else {
         return NO;
     }
-    
-//	if([[self builtDataBase] stringForQuery:kMUBeanSerializerDatabaseFetchKeyByKeyQuery, aKey]) {
-//		return YES;
-//	} else {
-//		return NO;
-//	}
 }
 
 - (void)cleanSerializeData
@@ -294,12 +286,24 @@ static inline NSString* pathForKey(NSString* aKey) {
     if (!isSucceed) {
         NSLog(@"clean MUBeanSerializerDirectory faild.");
     }
-    _cacheDictionary = nil;
+    [_checkExistLock lock];
+    [_dataKeyQuickTable removeAllObjects];
+    _dataKeyQuickTable = nil;
+    [_checkExistLock unlock];
+//    [_cacheLock lock];
+//    [_cacheDictionary removeAllObjects];
+//    _cacheDictionary = nil;
+//    [_cacheLock unlock];
+    [_cache removeAllObjects];
+    
     __instance = nil;
 }
 - (void) cleanCache
 {
-    [_cacheDictionary removeAllObjects];
+//    [_cacheLock lock];
+//    [_cacheDictionary removeAllObjects];
+//    [_cacheLock unlock];
+    [_cache removeAllObjects];
 }
 
 - (void) removeSerializeDataForKey:(id) aKey
@@ -324,9 +328,12 @@ static inline NSString* pathForKey(NSString* aKey) {
             BOOL success = [db executeUpdate:kMUBeanSerializerDatabaseDeleteDataForKeyUpdate, key];
             if (!success) {
                 NSLog(@"removeSerializeDataForKeyArray error:%@", [self lastErrorInformation:db]);
+                continue;
             }
             
+            [_checkExistLock lock];
             [_dataKeyQuickTable removeObjectForKey:key];
+            [_checkExistLock unlock];
         }
     }];
     
@@ -345,8 +352,7 @@ static inline NSString* pathForKey(NSString* aKey) {
 	[writeInvocation setArgument:&data atIndex:2];
 	[writeInvocation setArgument:&path atIndex:3];
 	
-	NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithInvocation:writeInvocation];
-	[_diskOperationQueue addOperation:operation];
+	[self performDiskWriteOperation:writeInvocation];
 }
 
 - (NSData*)deserializeDataFromDatabaseForKey:(NSString*)aKey {
@@ -362,7 +368,6 @@ static inline NSString* pathForKey(NSString* aKey) {
 	if(resultData) {
 		return resultData;
 	} else {
-        NSLog(@"no such data for key:%@", aKey);
 		return nil;
 	}
 }
@@ -385,7 +390,9 @@ static inline NSString* pathForKey(NSString* aKey) {
         return NO;
     }
     
+    [_checkExistLock lock];
     [_dataKeyQuickTable setObject:[NSNumber numberWithBool:YES] forKey:aKey];
+    [_checkExistLock unlock];
     
     return YES;
 }
@@ -405,9 +412,16 @@ static inline NSString* pathForKey(NSString* aKey) {
         return NO;
     }
     
+    [_checkExistLock lock];
     [_dataKeyQuickTable removeObjectForKey:aKey];
+    [_checkExistLock unlock];
     
     return YES;
+}
+
+- (void)performDiskWriteOperation:(NSInvocation *)invoction {
+	NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithInvocation:invoction];
+	[_diskOperationQueue addOperation:operation];
 }
 
 #pragma mark - object methods
@@ -421,7 +435,7 @@ static inline NSString* pathForKey(NSString* aKey) {
 - (id) deserializeObjectforKey:(id) aKey useCache:(BOOL)isUseCache
 {
     if (isUseCache) {
-        id object = [_cacheDictionary objectForKey:aKey];
+        id object = [_cache objectForKey:aKey];
         if (object != nil) {
             return object;
         }
@@ -429,7 +443,7 @@ static inline NSString* pathForKey(NSString* aKey) {
     if ([self hasSerializeKey:aKey]) {
         id anObject = [NSKeyedUnarchiver unarchiveObjectWithData:[self deserializeDataFromDatabaseForKey:aKey]];
         if (isUseCache) {
-            [_cacheDictionary setObject:anObject forKey:aKey];
+            [_cache setObject:anObject forKey:aKey];
         }
         return anObject;
     }
@@ -441,7 +455,6 @@ static inline NSString* pathForKey(NSString* aKey) {
     NSTimeInterval targetTimeIntv = [[NSDate date] timeIntervalSince1970] + timeInterval;
     
     [self setTimeIntervalForKey:aKey timeInterval:targetTimeIntv];
-    
     [self serializeObject:object forKey:aKey];
 }
 
@@ -463,7 +476,8 @@ static inline NSString* pathForKey(NSString* aKey) {
 
 - (void) serializeImage:(UIImage*) anImage forKey:(id) aKey
 {
-    [self serializeData:UIImagePNGRepresentation(anImage) forKey:aKey];
+//    [self serializeData:UIImagePNGRepresentation(anImage) forKey:aKey];
+    [self serializeData:UIImageJPEGRepresentation(anImage, 1) forKey:aKey];
 }
 - (UIImage*) deserializeImageforKey:(id) aKey
 {

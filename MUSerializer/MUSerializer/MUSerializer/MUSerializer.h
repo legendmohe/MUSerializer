@@ -29,9 +29,9 @@
 
 @interface MUSerializer : NSObject{
     NSOperationQueue* _diskOperationQueue;
+    NSCache* _cache;
     
-    NSMutableDictionary* _cacheDictionary;
-    
+    NSLock* _checkExistLock;
     NSMutableDictionary* _dataKeyQuickTable;
 }
 
